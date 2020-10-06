@@ -17,7 +17,7 @@ namespace EFCoreGetStarted.Models
         public string Isbn { get; set; }
         public string Title { get; set; }
         public string Description { get; set; }
-        public DateTime PublishDate { get; set; }
+        public string PublishDate { get; set; }
         public int Price { get; set; }
         public string Imgurl { get; set; }
         public List<BookAuthor> BookAuthors { get; set; }
@@ -58,7 +58,7 @@ namespace EFCoreGetStarted.Models
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseSqlite("Data Source = BookSystem.db");
+            => optionsBuilder.UseSqlServer("Data Source = 192.168.211.134,1433;Database=BookSystem;User ID=SA;Password=Password1!;");
         
     }
 
