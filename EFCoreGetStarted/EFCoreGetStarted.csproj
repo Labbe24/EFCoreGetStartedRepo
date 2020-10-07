@@ -6,8 +6,18 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Migrations\20200930121321_InitialCreate.cs" />
+    <Compile Remove="Migrations\20200930121321_InitialCreate.Designer.cs" />
     <Compile Remove="Migrations\20201006124016_iPubisDate.cs" />
     <Compile Remove="Migrations\20201006124016_iPubisDate.Designer.cs" />
+    <Compile Remove="Migrations\20201006124106_iPublishDte.cs" />
+    <Compile Remove="Migrations\20201006124106_iPublishDte.Designer.cs" />
+    <Compile Remove="Migrations\20201007113948_IPriceOffer.cs" />
+    <Compile Remove="Migrations\20201007113948_IPriceOffer.Designer.cs" />
+    <Compile Remove="Migrations\20201007114908_InitialCreate.cs" />
+    <Compile Remove="Migrations\20201007114908_InitialCreate.Designer.cs" />
+    <Compile Remove="Migrations\20201007124832_IReviewEdition.cs" />
+    <Compile Remove="Migrations\20201007124832_IReviewEdition.Designer.cs" />
   </ItemGroup>
 
   <ItemGroup>
