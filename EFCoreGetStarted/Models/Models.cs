@@ -6,10 +6,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFCoreGetStarted.Models
 {
-    class Models
-    {
-    }
-
     public class Book
     {
         [Key]
