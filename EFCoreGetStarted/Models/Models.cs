@@ -91,6 +91,14 @@ namespace EFCoreGetStarted.Models
 
     public class BookAuthorContext : DbContext
     {
+        public DbSet<Book> Books { get; set; }
+        public DbSet<Author> Authors { get; set; }
+        public DbSet<BookAuthor> BookAuthors { get; set; }
+        public DbSet<Edition> Editions { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+        public DbSet<PriceOffer> PriceOffers { get; set; }
+        public DbSet<Voter> Voters { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             // Book - Author (many to many relationship)

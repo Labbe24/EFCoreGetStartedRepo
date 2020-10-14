@@ -4,14 +4,16 @@ using EFCoreGetStarted.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace EFCoreGetStarted.Migrations
 {
     [DbContext(typeof(BookAuthorContext))]
-    partial class BookAuthorContextModelSnapshot : ModelSnapshot
+    [Migration("20201007124528_IReviewReviewDate")]
+    partial class IReviewReviewDate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -37,7 +39,7 @@ namespace EFCoreGetStarted.Migrations
 
                     b.HasKey("AuthorId");
 
-                    b.ToTable("Authors");
+                    b.ToTable("Author");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.Book", b =>
@@ -84,7 +86,7 @@ namespace EFCoreGetStarted.Migrations
 
                     b.HasIndex("PrimaryAuthorAuthorId");
 
-                    b.ToTable("Books");
+                    b.ToTable("Book");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.BookAuthor", b =>
@@ -99,7 +101,7 @@ namespace EFCoreGetStarted.Migrations
 
                     b.HasIndex("AuthorId");
 
-                    b.ToTable("BookAuthors");
+                    b.ToTable("BookAuthor");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.Edition", b =>
@@ -112,16 +114,11 @@ namespace EFCoreGetStarted.Migrations
                     b.Property<int>("BookId")
                         .HasColumnType("int");
 
-                    b.Property<int>("ReviewId")
-                        .HasColumnType("int");
-
                     b.HasKey("EditionId");
 
                     b.HasIndex("BookId");
 
-                    b.HasIndex("ReviewId");
-
-                    b.ToTable("Editions");
+                    b.ToTable("Edition");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.PriceOffer", b =>
@@ -145,7 +142,7 @@ namespace EFCoreGetStarted.Migrations
                     b.HasIndex("BookId")
                         .IsUnique();
 
-                    b.ToTable("PriceOffers");
+                    b.ToTable("PriceOffer");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.Review", b =>
@@ -174,7 +171,7 @@ namespace EFCoreGetStarted.Migrations
 
                     b.HasIndex("BookId");
 
-                    b.ToTable("Reviews");
+                    b.ToTable("Review");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.Voter", b =>
@@ -195,7 +192,7 @@ namespace EFCoreGetStarted.Migrations
 
                     b.HasIndex("ReviewId");
 
-                    b.ToTable("Voters");
+                    b.ToTable("Voter");
                 });
 
             modelBuilder.Entity("EFCoreGetStarted.Models.Book", b =>
@@ -230,12 +227,6 @@ namespace EFCoreGetStarted.Migrations
                         .WithMany("Editions")
                         .HasForeignKey("BookId")
                         .OnDelete(DeleteBehavior.Cascade)
-                        .IsRequired();
-
-                    b.HasOne("EFCoreGetStarted.Models.Review", "Review")
-                        .WithMany("Editions")
-                        .HasForeignKey("ReviewId")
-                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
                 });
 
